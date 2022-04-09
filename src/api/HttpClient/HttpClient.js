@@ -4,7 +4,15 @@ import * as queryString from '../../lib/queryString';
 export class HttpClient {
 	/**
 	 *
-	 * @returns {{DELETE: string, POST: string, GET: string, PATCH: string, PUT: string}}
+	 * @param host
+	 */
+	constructor(host) {
+		this.host = host;
+	}
+
+	/**
+	 *
+	 * @returns {{HEAD: string, DELETE: string, POST: string, GET: string, PATCH: string, PUT: string}}
 	 * @constructor
 	 */
 	get METHOD() {
@@ -14,6 +22,7 @@ export class HttpClient {
 			PUT: 'put',
 			POST: 'post',
 			DELETE: 'delete',
+			HEAD: 'head',
 		};
 	}
 
@@ -39,14 +48,6 @@ export class HttpClient {
 			[this.HEADER.ACCEPT]: 'application/json',
 			[this.HEADER.CONTENT_TYPE]: 'application/json',
 		};
-	}
-
-	/**
-	 *
-	 * @param host
-	 */
-	constructor(host) {
-		this.host = host;
 	}
 
 	/**
@@ -185,7 +186,7 @@ export class HttpClient {
 	_prepareRequestBody(body, method) {
 		const _body = _.cloneDeep(body);
 
-		if (!_.includes(['get', 'head'], method)) return JSON.stringify(body);
+		if (!_.includes([this.METHOD.GET, this.METHOD.HEAD], method)) return JSON.stringify(body);
 
 		return _body;
 	}

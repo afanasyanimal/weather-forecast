@@ -1,3 +1,3 @@
-import { HttpClient } from './HttpClient'
+import { HttpClient } from './HttpClient';
 
-export { HttpClient }
+export { HttpClient };

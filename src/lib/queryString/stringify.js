@@ -1,11 +1,11 @@
 import _ from 'lodash';
 
 export const stringify = (obj = {}) => {
-  const pairs = [];
+	const pairs = [];
 
-  _.forOwn(obj, (value, key) => {
-    pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
-  });
+	_.forOwn(obj, (value, key) => {
+		pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+	});
 
-  return pairs.length ? pairs.join('&') : '';
+	return pairs.length ? pairs.join('&') : '';
 };

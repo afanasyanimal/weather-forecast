@@ -9,16 +9,13 @@ const requestWeather = async (lat = 49.8040832, lon = 23.2423424) => { // для
 	console.log(weather);
 
 	return weather;
-}
+};
 
 function WelcomePage() {
-	console.log(requestWeather())
 
 	useEffect(() => {
 		requestWeather();
 	}, ['static']);
-
-
 
 	return (
 		<div className="App">

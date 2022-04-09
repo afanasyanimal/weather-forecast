@@ -3,5 +3,5 @@ import { useLoading } from './useLoading';
 
 export {
 	useIsMounted,
-	useLoading
-}
+	useLoading,
+};
